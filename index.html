@@ -1,0 +1,225 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>White Label App</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <img
+        class="logo"
+        src="https://s3.amazonaws.com/landingpage.spot.im/v2/img/logo-small.png"
+      />
+      <h1>Special features offered by other publisher apps</h1>
+      <div id="container"></div>
+    </div>
+  </body>
+
+  <script>
+    const data = [
+      {
+        label: 'CNN',
+        features: ['Notification settings through on-boarding'],
+        screenshots: [
+          'IMG_8608.png',
+          'IMG_8609.png',
+          'IMG_8610.png',
+          'IMG_8611.png',
+          'IMG_8612.png',
+          'IMG_8613.png',
+        ],
+      },
+      {
+        label: 'Fox-News',
+        features: ['Amazon subscription integration'],
+        screenshots: [
+          'IMG_8564.png',
+          'IMG_8567.png',
+          'IMG_8568.png',
+          'IMG_8569.png',
+          'IMG_8570.png',
+          'IMG_8571.png',
+          'IMG_8596.png',
+          'IMG_8597.png',
+          'IMG_8598.png',
+        ],
+      },
+      {
+        label: 'Mako',
+        features: ['Stories', 'Magazine Feed Items', 'TV Time Schedule'],
+        screenshots: [
+          'IMG_8584.png',
+          'IMG_8585.png',
+          'IMG_8586.png',
+          'IMG_8587.png',
+          'IMG_8588.png',
+        ],
+      },
+      {
+        label: 'NY-Times',
+        features: ['Drag categories in sidebar', 'Staff picks for comments'],
+        screenshots: [
+          'IMG_8599.png',
+          'IMG_8600.png',
+          'IMG_8601.png',
+          'IMG_8602.png',
+          'IMG_8603.png',
+          'IMG_8604.png',
+          'IMG_8605.png',
+          'IMG_8606.png',
+          'IMG_8607.png',
+        ],
+      },
+      {
+        label: 'One',
+        features: ['Video feed'],
+        screenshots: ['IMG_8628.png'],
+      },
+      {
+        label: 'The-Sun',
+        features: [
+          'Tagged articles',
+          'Image gallery',
+          'Change of category change header color',
+        ],
+        screenshots: [
+          'IMG_8621.png',
+          'IMG_8622.png',
+          'IMG_8623.png',
+          'IMG_8624.png',
+          'IMG_8625.png',
+          'IMG_8626.png',
+          'IMG_8627.png',
+        ],
+      },
+      {
+        label: 'The-Times',
+        features: [
+          'Updated badge on articles',
+          'Uses our commenting section in app',
+          'Article feed has 2x2 layout',
+          'Past 6 days',
+        ],
+        screenshots: [
+          'IMG_8614.png',
+          'IMG_8615.png',
+          'IMG_8616.png',
+          'IMG_8617.png',
+          'IMG_8618.png',
+          'IMG_8619.png',
+          'IMG_8620.png',
+        ],
+      },
+      {
+        label: 'Walla',
+        features: [
+          'Choose color theme modal',
+          'Text is highlighted inside the article once it’s in the viewport',
+        ],
+        screenshots: [
+          'IMG_8581.png',
+          'IMG_8583.png',
+          'IMG_8589.png',
+          'IMG_8590.png',
+          'IMG_8591.png',
+          'IMG_8592.png',
+          'IMG_8593.png',
+        ],
+      },
+      {
+        label: 'YNet',
+        features: ['Displays Facebook and WhatsUp icons next to share button'],
+        screenshots: [
+          'IMG_8575.png',
+          'IMG_8576.png',
+          'IMG_8577.png',
+          'IMG_8578.png',
+        ],
+      },
+      {
+        label: 'iBooks',
+        features: [],
+        screenshots: ['IMG_8561.png', 'IMG_8562.png', 'IMG_8563.png'],
+      },
+    ];
+
+    const content = data
+      .map(publisher => {
+        return `<div id="template">
+        <h2 class="title">${publisher.label.replace(/-/g, ' ')}</h2>
+        <ul class="features">${publisher.features
+          .map(feature => `<li class="feature">${feature}</li>`)
+          .join('')}</ul>
+        <div class="screenshots">${publisher.screenshots
+          .map(
+            screenshot => `
+            <img class="screenshot" src="${publisher.label}/${screenshot}"/>
+          `,
+          )
+          .join('')}</div>
+      </div>`;
+      })
+      .join('');
+
+    document.querySelector('#container').innerHTML = content;
+  </script>
+  <style>
+    ::-webkit-scrollbar {
+      height: 6px;
+      width: 12px;
+      background: black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #307fe2;
+      -webkit-border-radius: 1ex;
+      -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+    }
+
+    body {
+      font-family: 'Open Sans';
+      padding: 50px;
+      background: url(https://github.com/atlemo/SubtlePatterns/raw/gh-pages/binding_dark.png);
+      color: white;
+    }
+
+    .logo {
+      width: 110px;
+      height: 35px;
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: auto;
+      border-top: 7px solid #307fe2;
+      padding-top: 30px;
+    }
+
+    h1 {
+      font-size: 1.8em;
+    }
+
+    h2 {
+      text-transform: uppercase;
+    }
+
+    .screenshots {
+      display: flex;
+      width: 100%;
+      overflow-x: scroll;
+      padding: 20px;
+    }
+
+    .screenshot {
+      border: 4px solid white;
+      margin-right: 30px;
+      width: 375px;
+      height: 667px;
+    }
+  </style>
+</html>
